@@ -1,7 +1,15 @@
-# My Portfolio
+# Dane Malloy's Portfolio
 
 ### Summary
-Full-stack ROBLOX game developer with multiple contributed and owned projects totaling over 300 million platform visits.
+Full-stack Roblox game developer with multiple projects totaling over 300 million platform visits.
+
+### Skills
+- Luau and Roblox Studio expert with 7+ years of experience
+- ROJO and Visual Studio Code workflow
+- CI/CD pipelines using GitHub
+- UI/UX programming
+- Datastores and off-site APIs
+- Luau implementation of Object Oriented Programming [OOP]
 
 ### Work/Project Experience
 [PEXRAN Studios](https://www.roblox.com/groups/8101033/PEXRAN-Studios), Roblox group [63K+] - Assistant Programmer
@@ -21,7 +29,7 @@ Full-stack ROBLOX game developer with multiple contributed and owned projects to
 Below are some mock files I have created so that you can see my code style and organization.
 - [Datastore handler](https://github.com/danemalloy/code-examples/blob/main/DataHandler.lua)
 - [Server side of a skill (client side not included)](https://github.com/danemalloy/code-examples/blob/main/SkillReplicator.lua)
-- [Moderation system](https://github.com/danemalloy/code-examples/blob/main/moderation.lua)
+- [Server event service](https://github.com/danemalloy/code-examples/blob/main/ServerEventService.lua)
 
 ### Contact Info
 - [LinkedIn](https://www.linkedin.com/in/dane-malloy/)
