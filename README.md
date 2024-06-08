@@ -19,13 +19,13 @@ Full-stack ROBLOX game developer with multiple contributed and owned projects to
 
 ### Code Examples
 Below are some mock files I have created so that you can see my code style and organization.
-- [Datastore handler](https://github.com/danemalloy/code-examples/blob/main/datahandler.lua)
-- [PlayerClass system](https://github.com/danemalloy/code-examples/blob/main/playerclass.lua)
+- [Datastore handler](https://github.com/danemalloy/code-examples/blob/main/DataHandler.lua)
+- [Server side of a skill (client side not included)](https://github.com/danemalloy/code-examples/blob/main/SkillReplicator.lua)
 - [Moderation system](https://github.com/danemalloy/code-examples/blob/main/moderation.lua)
 
 ### Contact Info
-[LinkedIn](https://www.linkedin.com/in/dane-malloy/)
-[Roblox Profile](https://www.roblox.com/users/567576529/profile)
-Discord: dane1up
-X: dane1up
-GMail: damalloy2@gmail.com
+- [LinkedIn](https://www.linkedin.com/in/dane-malloy/)
+- [Roblox Profile](https://www.roblox.com/users/567576529/profile)
+- Discord: dane1up
+- X: dane1up
+- GMail: damalloy2@gmail.com
