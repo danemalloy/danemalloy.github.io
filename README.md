@@ -18,4 +18,14 @@ Full-stack ROBLOX game developer with multiple contributed and owned projects to
 - All games completely programmed by myself
 
 ### Code Examples
-- soon
+Below are some mock files I have created so that you can see my code style and organization.
+- [Datastore handler](https://github.com/danemalloy/code-examples/blob/main/datahandler.lua)
+- [PlayerClass system](https://github.com/danemalloy/code-examples/blob/main/playerclass.lua)
+- [Moderation system](https://github.com/danemalloy/code-examples/blob/main/moderation.lua)
+
+### Contact Info
+[LinkedIn](https://www.linkedin.com/in/dane-malloy/)
+[Roblox Profile](https://www.roblox.com/users/567576529/profile)
+Discord: dane1up
+X: dane1up
+GMail: damalloy2@gmail.com
