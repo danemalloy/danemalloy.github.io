@@ -1,1 +1,25 @@
 # Portfolio
+
+
+### Summary
+Full-stack ROBLOX game developer with multiple contributed and owned projects totaling over 300 million platform visits.
+
+### Work/Project Experience
+PEXRAN Studios, Roblox group [63K+] - Assistant Programmer
+- Implemented custom moderation, datastore, and dynamic shop systems into the game Boat Empire Tycoon [1m+ visits]
+- Built upon their modular game system to create efficient and visually appealing UI/UX elements within the shops, gamepass ads, and other monetization strategies within the game
+- Group link: https://www.roblox.com/groups/8101033/PEXRAN-Studios
+
+Tyrosaurs Dinosaurs, Roblox group [52K+] - Assistant Programmer
+- Implemented modular quests system into the game Floodgate Tower Defense [2m+ visits]
+- Reworked physics and client-sided rendering to decrease lag within AI and tower systems
+- Group link: https://www.roblox.com/groups/4904636/Tyrosaurs-Dinosaurs
+
+1up Studios, Roblox group [2.5k+] - Lead Programmer
+- Personal project group funded by myself
+- 2 fully released simulators, and one more in progress
+- All games completely programmed by myself
+- Group link: https://www.roblox.com/groups/33844524/1up-Studios
+
+### Code Examples
+- soon
