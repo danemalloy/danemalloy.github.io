@@ -25,7 +25,7 @@ Below are some mock files I have created so that you can see my code style and o
 
 ### Contact Info
 - [LinkedIn](https://www.linkedin.com/in/dane-malloy/)
-- [Roblox Profile](https://www.roblox.com/users/567576529/profile)
-- Discord: dane1up
-- X: dane1up
-- GMail: damalloy2@gmail.com
+- [Roblox profile](https://www.roblox.com/users/567576529/profile)
+- [Discord server](https://discord.com/invite/V9SuDyRkuv)
+- [X profile](https://x.com/dane1up)
+- damalloy2@gmail.com
