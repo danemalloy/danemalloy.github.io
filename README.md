@@ -5,11 +5,12 @@ Full-stack Roblox game developer with multiple projects totaling over 300 millio
 
 ### Skills
 - Luau and Roblox Studio expert with 7+ years of experience
+- Highly skilled with TS and RobloxTS
 - ROJO and Visual Studio Code workflow
 - CI/CD pipelines using GitHub
 - UI/UX programming
 - Datastores and off-site APIs
-- Luau implementation of Object Oriented Programming [OOP]
+- Dynamic programming
 
 ### Work/Project Experience
 [PEXRAN Studios](https://www.roblox.com/groups/8101033/PEXRAN-Studios), Roblox group [63K+] - Assistant Programmer
@@ -30,6 +31,9 @@ Below are some mock files I have created so that you can see my code style and o
 - [Datastore handler](https://github.com/danemalloy/code-examples/blob/main/DataHandler.lua)
 - [Server side of a skill (client side not included)](https://github.com/danemalloy/code-examples/blob/main/SkillReplicator.lua)
 - [Server event service](https://github.com/danemalloy/code-examples/blob/main/ServerEventService.lua)
+
+### Education
+Codecademy Computer Science Course (Certification)
 
 ### Contact Info
 - [LinkedIn](https://www.linkedin.com/in/dane-malloy/)
