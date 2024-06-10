@@ -32,7 +32,7 @@ Below are some mock files I have created so that you can see my code style and o
 - [Server side of a skill (client side not included)](https://github.com/danemalloy/code-examples/blob/main/SkillReplicator.lua)
 - [Server event service](https://github.com/danemalloy/code-examples/blob/main/ServerEventService.lua)
 
-### Education
+### Education/Certifications
 Codecademy Computer Science Course (Certification)
 
 ### Contact Info
