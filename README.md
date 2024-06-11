@@ -28,9 +28,9 @@ Full-stack Roblox game developer with multiple projects totaling over 300 millio
 
 ### Code Examples
 Below are some mock files I have created so that you can see my code style and organization.
-- [Datastore handler](https://github.com/danemalloy/code-examples/blob/main/DataHandler.lua)
-- [Server side of a skill (client side not included)](https://github.com/danemalloy/code-examples/blob/main/SkillReplicator.lua)
-- [Server event service](https://github.com/danemalloy/code-examples/blob/main/ServerEventService.lua)
+- [Datastore handler](https://github.com/danemalloy/code-examples/blob/main/DataHandler.lua) (Luau)
+- [Server side of a skill (client side not included)](https://github.com/danemalloy/code-examples/blob/main/SkillReplicator.lua) (Luau)
+- [My updated ProxyService](https://github.com/danemalloy/ProxyService/tree/master) (JavaScript + Luau)
 
 ### Education/Certifications
 Codecademy Computer Science Course (Certification)
