@@ -15,7 +15,7 @@ import { SiTailwindcss, SiNextdotjs } from "react-icons/si";
 const about = {
   title: "About me",
   description:
-    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates quibusdam, sunt explicabo inventore.",
+    "I am a self taught programmer who has been on the Roblox platform since 2013. I learned how to program in early 2017 and have since then contributed to over 500 million play sessions on the platform.",
   info: [
     {
       fieldName: "Name",
@@ -42,7 +42,7 @@ const about = {
       fieldValue: "damalloy2@gmail.com",
     },
     {
-      fieldName: "Gameplay programmer",
+      fieldName: "Programmer",
       fieldValue: "Available",
     },
     {
@@ -57,12 +57,27 @@ const experience = {
   icon: "/assets/resume/badge.svg",
   title: "My experience",
   description:
-    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates quibusdam, sunt explicabo inventore.",
+    "Over the years i have contributed to hundreds of games, successful and unsuccessful. I have learned from every project to get me to where I am today.",
   items: [
     {
-      company: "Tech Solutions Inc.",
-      position: "Full Stack Developer",
-      duration: "2022 - Present",
+      company: "#Streetz War 2 [500k+ members]",
+      position: "Lead Programmer and Development Head",
+      duration: "Aug 2023 - Nov 2024",
+    },
+    {
+      company: "PEXRAN Studios [85k+ members]",
+      position: "Supporting Programmer",
+      duration: "Jun 2023 - Aug 2023",
+    },
+    {
+      company: "Tyrosaur's Dinosaurs [50k+ members]",
+      position: "Supporting Programmer",
+      duration: "Aug 2022 - Jun 2023",
+    },
+    {
+      company: "Passtime Simulators [20k+ members]",
+      position: "Supporting Programmer",
+      duration: "Apr 2022 - Aug 2022",
     },
   ],
 };
@@ -70,80 +85,24 @@ const experience = {
 // education data
 const education = {
   icon: "/assets/resume/cap.svg",
-  title: "My education",
+  title: "My certifications",
   description:
-    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates quibusdam, sunt explicabo inventore.",
+    "I have multiple professional certifications, recently picking up a certification from Codecademy in computational science.",
   items: [
     {
-      institution: "Online Course Platform",
-      degree: "Full Stack Web Development Bootcamp",
+      institution: "Codecademy",
+      degree: "Computational Science Professional Certification",
+      duration: "2024",
+    },
+    {
+      institution: "Codecademy",
+      degree: "Data Security Certification",
       duration: "2023",
     },
     {
       institution: "Codecademy",
-      degree: "Front-end Track",
-      duration: "2022",
-    },
-    {
-      institution: "Online Course",
-      degree: "Programming Course",
-      duration: "2020 - 2021",
-    },
-    {
-      institution: "Tech Institute",
-      degree: "Certified Web Developer",
-      duration: "2019",
-    },
-    {
-      institution: "Design School",
-      degree: "Diploma in Graphic Design",
-      duration: "2016 - 2018",
-    },
-    {
-      institution: "Community College",
-      degree: "Associate Degree in Computer Science",
-      duration: "2014 - 2016",
-    },
-  ],
-};
-
-// skills data
-const skills = {
-  title: "My skills",
-  description:
-    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates quibusdam, sunt explicabo inventore.",
-  skillList: [
-    {
-      icon: <FaHtml5 />,
-      name: "html 5",
-    },
-    {
-      icon: <FaCss3 />,
-      name: "css 3",
-    },
-    {
-      icon: <FaJs />,
-      name: "javascript",
-    },
-    {
-      icon: <FaReact />,
-      name: "react.js",
-    },
-    {
-      icon: <SiNextdotjs />,
-      name: "next.js",
-    },
-    {
-      icon: <SiTailwindcss />,
-      name: "tailwind.css",
-    },
-    {
-      icon: <FaNodeJs />,
-      name: "node.js",
-    },
-    {
-      icon: <FaFigma />,
-      name: "figma",
+      degree: "Full-Stack Developer Professional Certification",
+      duration: "2023",
     },
   ],
 };
@@ -245,38 +204,6 @@ const Resume = () => {
                     })}
                   </ul>
                 </ScrollArea>
-              </div>
-            </TabsContent>
-
-            {/* skills */}
-            <TabsContent value="skills" className="w-full h-full">
-              <div className="flex flex-col gap-[30px]">
-                <div className="flex flex-col gap-[30px] text-center xl:text-left">
-                  <h3 className="text-4xl font-bold">{skills.title}</h3>
-                  <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
-                    {skills.description}
-                  </p>
-                </div>
-                <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 xl:gap-[30px]">
-                  {skills.skillList.map((skill, index) => {
-                    return (
-                      <li key={index}>
-                        <TooltipProvider delayDuration={100}>
-                          <Tooltip>
-                            <TooltipTrigger className="w-full h-[150px] bg-[#232329] rounded-xl flex justify-center items-center group">
-                              <div className="text-6xl group-hover:text-accent transition-all duration-300">
-                                {skill.icon}
-                              </div>
-                            </TooltipTrigger>
-                            <TooltipContent>
-                              <p className="capitalize">{skill.name}</p>
-                            </TooltipContent>
-                          </Tooltip>
-                        </TooltipProvider>
-                      </li>
-                    );
-                  })}
-                </ul>
               </div>
             </TabsContent>
 

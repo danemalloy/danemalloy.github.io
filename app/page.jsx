@@ -13,12 +13,12 @@ const Home = () => {
         <div className="flex flex-col xl:flex-row items-center justify-between xl:pt-8 xl:pb-24">
           {/* text */}
           <div className="text-center xl:text-left order-2 xl:order-none">
-            <span className="text-xl">Software Developer</span>
+            <span className="text-xl">Computer Scientist</span>
             <h1 className="h1 mb-6">
               Hey, I&apos;m <br /> <span className="text-accent">Dane Malloy</span>
             </h1>
             <p className="max-w-[500px] mb-9 text-white/80">
-              I am a certified computer scientist and professional Roblox game developer.
+              Certified computer scientist and professional Roblox game developer. I have over 7 years of development experience with over 500 million playtime sessions contributed.
             </p>
             {/* btn and socials */}
             <div className="flex flex-col xl:flex-row items-center gap-8">

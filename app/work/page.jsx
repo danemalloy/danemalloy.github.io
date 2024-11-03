@@ -22,36 +22,33 @@ import WorkSliderBtns from "@/components/WorkSliderBtns";
 const projects = [
   {
     num: "01",
-    category: "frontend",
-    title: "project 1",
+    category: "fullstack",
+    title: "Streetz War 2 [65m+ plays]",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate magnam modi.",
-    stack: [{ name: "Html 5" }, { name: "Css 3" }, { name: "Javascript" }],
+      "Lead programmer and development head role. Created intuitive systems such as live events, improved existign datastores, and optimized game performance.",
+    stack: [{ name: "TypeScript" }, { name: "Luau" }, { name: "SQL" }],
     image: "/assets/work/thumb1.png",
-    live: "",
-    github: "",
+    live: "https://www.roblox.com/games/11177482306",
   },
   {
     num: "02",
     category: "fullstack",
-    title: "project 2",
+    title: "Boat Empire Tycoon [4m+ plays]",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate magnam modi.",
-    stack: [{ name: "Next.js" }, { name: "Tailwind.css" }, { name: "Node.js" }],
+      "Supporting programmer role. Created interactive shop systems on the game's front and back end, and contributed to the main game's framework. Worked on datastores, optimizations, and other backend features.",
+    stack: [{ name: "Luau" }, { name: "Figma" }],
     image: "/assets/work/thumb2.png",
-    live: "",
-    github: "",
+    live: "https://www.roblox.com/games/14079247169",
   },
   {
     num: "03",
     category: "frontend",
-    title: "project 3",
+    title: "Floodgate Tower Defense [2m+ plays]",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate magnam modi.",
+      "Contract programmer role. Created a quest system, contributed to client-server optimizations, and various bug fixes.",
     stack: [{ name: "Next.js" }, { name: "Tailwind.css" }],
     image: "/assets/work/thumb3.png",
-    live: "",
-    github: "",
+    live: "https://www.roblox.com/games/6411151366",
   },
 ];
 
