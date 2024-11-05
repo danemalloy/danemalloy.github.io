@@ -91,7 +91,7 @@ const education = {
   items: [
     {
       institution: "Codecademy",
-      degree: "Computational Science Professional Certification",
+      degree: "Computational Science Certification",
       duration: "2024",
     },
     {
@@ -101,7 +101,7 @@ const education = {
     },
     {
       institution: "Codecademy",
-      degree: "Full-Stack Developer Professional Certification",
+      degree: "Full-Stack Developer Certification",
       duration: "2023",
     },
   ],
