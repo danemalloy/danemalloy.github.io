@@ -8,7 +8,7 @@ const stats = [
     text: "Years of experience",
   },
   {
-    num: "500m+",
+    num: 500000000,
     text: "Play Sessions Contributed",
   },
   {
