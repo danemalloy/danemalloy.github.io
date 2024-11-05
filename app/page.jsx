@@ -18,7 +18,7 @@ const Home = () => {
               Hey, I&apos;m <br /> <span className="text-accent">Dane Malloy</span>
             </h1>
             <p className="max-w-[500px] mb-9 text-white/80">
-              Certified computer scientist and professional Roblox game developer. I have over 7 years of development experience with over 500 million playtime sessions contributed.
+              Certified computer scientist and professional Roblox game developer.
             </p>
             {/* btn and socials */}
             <div className="flex flex-col xl:flex-row items-center gap-8">

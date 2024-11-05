@@ -21,19 +21,19 @@ import WorkSliderBtns from "@/components/WorkSliderBtns";
 
 const projects = [
   {
-    num: "01",
+    num: "[65m+ plays]",
     category: "fullstack",
-    title: "Streetz War 2 [65m+ plays]",
+    title: "Streetz War 2",
     description:
-      "Lead programmer and development head role. Created intuitive systems such as live events, improved existign datastores, and optimized game performance.",
+      "Lead programmer and development head role. Created intuitive systems such as live events, improved existing datastores, and optimized game performance.",
     stack: [{ name: "TypeScript" }, { name: "Luau" }, { name: "SQL" }],
     image: "/assets/work/thumb1.png",
     live: "https://www.roblox.com/games/11177482306",
   },
   {
-    num: "02",
+    num: "[4m+ plays]",
     category: "fullstack",
-    title: "Boat Empire Tycoon [4m+ plays]",
+    title: "Boat Empire Tycoon",
     description:
       "Supporting programmer role. Created interactive shop systems on the game's front and back end, and contributed to the main game's framework. Worked on datastores, optimizations, and other backend features.",
     stack: [{ name: "Luau" }, { name: "Figma" }],
@@ -41,12 +41,12 @@ const projects = [
     live: "https://www.roblox.com/games/14079247169",
   },
   {
-    num: "03",
-    category: "frontend",
-    title: "Floodgate Tower Defense [2m+ plays]",
+    num: "[2m+ plays]",
+    category: "fullstack",
+    title: "Floodgate Tower Defense",
     description:
       "Contract programmer role. Created a quest system, contributed to client-server optimizations, and various bug fixes.",
-    stack: [{ name: "Next.js" }, { name: "Tailwind.css" }],
+    stack: [{ name: "Luau" }, { name: "Figma" }],
     image: "/assets/work/thumb3.png",
     live: "https://www.roblox.com/games/6411151366",
   },
@@ -81,7 +81,7 @@ const Work = () => {
               </div>
               {/* project category */}
               <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
-                {project.category} project
+                {project.title}
               </h2>
               {/* project description */}
               <p className="text-white/60">{project.description}</p>
