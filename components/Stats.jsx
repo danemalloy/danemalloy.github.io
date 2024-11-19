@@ -9,15 +9,15 @@ const stats = [
   },
   {
     num: 500000000,
-    text: "Play Sessions Contributed",
+    text: "Play sessions contributed",
   },
   {
     num: 6,
     text: "Technologies mastered",
   },
   {
-    num: 136,
-    text: "Code commits",
+    num: 22,
+    text: "Projects contributed",
   },
 ];
 
