@@ -20,6 +20,15 @@
         --border: #e5e7eb;
       }
 
+      [data-theme="dark"] {
+        --primary: #60a5fa;
+        --text: #f9fafb;
+        --text-light: #9ca3af;
+        --bg: #111827;
+        --bg-secondary: #1f2937;
+        --border: #374151;
+      }
+
       html {
         scroll-behavior: smooth;
       }
@@ -31,6 +40,9 @@
         line-height: 1.7;
         color: var(--text);
         background: var(--bg);
+        transition:
+          background-color 0.3s ease,
+          color 0.3s ease;
       }
 
       .container {
@@ -46,6 +58,9 @@
         top: 0;
         background: var(--bg);
         z-index: 100;
+        transition:
+          background-color 0.3s ease,
+          border-color 0.3s ease;
       }
 
       nav .container {
@@ -59,6 +74,25 @@
         font-weight: 600;
         color: var(--text);
         text-decoration: none;
+      }
+
+      .theme-toggle {
+        background: var(--bg-secondary);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 8px 12px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: all 0.2s;
+        font-size: 0.95rem;
+        color: var(--text);
+        font-family: inherit;
+      }
+
+      .theme-toggle:hover {
+        background: var(--border);
       }
 
       .nav-links {
@@ -76,6 +110,10 @@
 
       .nav-links a:hover {
         color: var(--primary);
+      }
+
+      section {
+        padding: 80px 0;
       }
 
       h1 {
@@ -406,19 +444,81 @@
           grid-template-columns: 1fr;
           gap: 32px;
         }
+
+        nav .container {
+          flex-wrap: wrap;
+        }
+
+        .theme-toggle {
+          order: -1;
+          margin-left: auto;
+        }
       }
     </style>
   </head>
   <body>
+    <script>
+      const getPreferredTheme = () => {
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme) {
+          return savedTheme;
+        }
+        return window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "light";
+      };
+
+      const setTheme = (theme) => {
+        document.documentElement.setAttribute("data-theme", theme);
+        localStorage.setItem("theme", theme);
+        updateThemeToggle(theme);
+      };
+
+      const updateThemeToggle = (theme) => {
+        const toggle = document.getElementById("theme-toggle");
+        if (toggle) {
+          toggle.textContent = theme === "dark" ? "☀️" : "🌙";
+        }
+      };
+
+      const toggleTheme = () => {
+        const currentTheme =
+          document.documentElement.getAttribute("data-theme") || "light";
+        const newTheme = currentTheme === "dark" ? "light" : "dark";
+        setTheme(newTheme);
+      };
+
+      setTheme(getPreferredTheme());
+
+      window
+        .matchMedia("(prefers-color-scheme: dark)")
+        .addEventListener("change", (e) => {
+          if (!localStorage.getItem("theme")) {
+            setTheme(e.matches ? "dark" : "light");
+          }
+        });
+    </script>
+
     <nav>
       <div class="container">
         <a href="#" class="logo">Dane Malloy</a>
-        <ul class="nav-links">
-          <li><a href="#about">About</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
+        <div style="display: flex; align-items: center; gap: 24px">
+          <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li>
+              <button
+                id="theme-toggle"
+                class="theme-toggle"
+                onclick="toggleTheme()"
+              >
+                🌙
+              </button>
+            </li>
+          </ul>
+        </div>
       </div>
     </nav>
 
@@ -867,72 +967,10 @@
           <div class="experience-header">
             <div>
               <div class="experience-title">Steal A Football Player</div>
-              <div class="experience-company">Mazz Productions</div>
             </div>
-            <div class="experience-date">Jul 2025 - Dec 2025</div>
-          </div>
-          <div class="experience-role">Programmer</div>
-          <p class="experience-description">
-            Programmed interactive events, fixed bugs, and implemented engaging
-            gameplay mechanics. Focused on event-driven architecture and player
-            engagement systems.
-          </p>
-          <span class="badge deleted">Content Deleted</span>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact">
-      <div class="container">
-        <h2>Let's connect</h2>
-        <p
-          style="
-            font-size: 1.05rem;
-            line-height: 1.8;
-            color: var(--text-light);
-            margin-bottom: 32px;
-          "
-        >
-          Interested in working together? Reach out through any of these
-          platforms.
-        </p>
-        <div class="project-links">
-          <a
-            href="https://www.linkedin.com/in/dane-malloy/"
-            class="project-link"
-            target="_blank"
-            >LinkedIn →</a
-          >
-          <a href="mailto:damalloy2@gmail.com" class="project-link"
-            >Email Me →</a
-          >
-          <a
-            href="https://www.roblox.com/users/567576529/profile"
-            class="project-link secondary"
-            target="_blank"
-            >Roblox Profile →</a
-          >
-        </div>
-      </div>
-    </section>
-
-    <footer>
-      <div class="container">
-        <div class="footer-content">
-          <p class="footer-text">© 2025 Dane Malloy | Roblox: dane1up</p>
-          <div class="social-links">
-            <a href="https://github.com/danemalloy" target="_blank">GitHub</a>
-            <a href="https://www.instagram.com/dane_malloy" target="_blank"
-              >Instagram</a
-            >
-            <a
-              href="https://www.roblox.com/users/567576529/profile"
-              target="_blank"
-              >Roblox</a
-            >
           </div>
         </div>
       </div>
-    </footer>
+    </section>
   </body>
 </html>
