@@ -1,1063 +1,889 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dane Malloy</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
     <style>
-      * {
+      *,
+      *::before,
+      *::after {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
       }
-
       :root {
-        --primary: #3b82f6;
-        --text: #1f2937;
-        --text-light: #6b7280;
-        --bg: #ffffff;
-        --bg-secondary: #f9fafb;
-        --border: #e5e7eb;
-      }
-
-      [data-theme="dark"] {
         --primary: #60a5fa;
-        --text: #f9fafb;
-        --text-light: #9ca3af;
-        --bg: #111827;
-        --bg-secondary: #1f2937;
-        --border: #374151;
+        --text: #f3f4f6;
+        --muted: #9ca3af;
+        --bg: #0f172a;
+        --bg2: #1e293b;
+        --border: #334155;
+        --radius: 8px;
       }
-
       html {
         scroll-behavior: smooth;
       }
-
       body {
         font-family:
-          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
-          Cantarell, sans-serif;
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         line-height: 1.7;
         color: var(--text);
         background: var(--bg);
-        transition:
-          background-color 0.3s ease,
-          color 0.3s ease;
       }
-
-      .container {
-        max-width: 900px;
+      .wrap {
+        max-width: 760px;
         margin: 0 auto;
         padding: 0 24px;
       }
-
       nav {
-        padding: 24px 0;
-        border-bottom: 1px solid var(--border);
         position: sticky;
         top: 0;
-        background: var(--bg);
         z-index: 100;
-        transition:
-          background-color 0.3s ease,
-          border-color 0.3s ease;
+        background: var(--bg);
+        border-bottom: 1px solid var(--border);
       }
-
-      nav .container {
+      nav .wrap {
         display: flex;
-        justify-content: space-between;
         align-items: center;
+        justify-content: space-between;
+        padding-top: 18px;
+        padding-bottom: 18px;
       }
-
       .logo {
-        font-size: 1.25rem;
-        font-weight: 600;
+        font-weight: 700;
+        font-size: 1rem;
         color: var(--text);
         text-decoration: none;
       }
-
-      .theme-toggle {
-        background: var(--bg-secondary);
-        border: 1px solid var(--border);
-        border-radius: 8px;
-        padding: 8px 12px;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        transition: all 0.2s;
-        font-size: 0.95rem;
-        color: var(--text);
-        font-family: inherit;
-      }
-
-      .theme-toggle:hover {
-        background: var(--border);
-      }
-
       .nav-links {
         display: flex;
-        gap: 32px;
+        gap: 28px;
         list-style: none;
+        align-items: center;
       }
-
       .nav-links a {
-        color: var(--text-light);
+        color: var(--muted);
         text-decoration: none;
+        font-size: 0.9rem;
         transition: color 0.2s;
-        font-size: 0.95rem;
       }
-
       .nav-links a:hover {
         color: var(--primary);
       }
-
-      section {
-        padding: 80px 0;
+      #hero {
+        padding: 80px 0 60px;
       }
-
-      h1 {
-        font-size: 3rem;
+      #hero h1 {
+        font-size: 2.6rem;
         font-weight: 700;
-        margin-bottom: 16px;
-        line-height: 1.2;
+        line-height: 1.15;
+        margin-bottom: 12px;
       }
-
-      .hero-subtitle {
-        font-size: 1.25rem;
-        color: var(--text-light);
+      .hero-sub {
+        font-size: 1.05rem;
+        color: var(--muted);
+        margin-bottom: 28px;
+      }
+      .social-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
         margin-bottom: 32px;
       }
-
-      .hero-description {
-        font-size: 1.05rem;
-        line-height: 1.8;
-        color: var(--text-light);
-        max-width: 700px;
-      }
-
-      .game-showcase {
-        margin-top: 64px;
-        overflow: hidden;
-        position: relative;
-      }
-
-      .game-showcase-track {
-        display: flex;
-        gap: 24px;
-        animation: scroll 30s linear infinite;
-      }
-
-      .game-showcase:hover .game-showcase-track {
-        animation-play-state: paused;
-      }
-
-      .game-card {
-        flex: 0 0 300px;
-        background: var(--bg-secondary);
-        border: 1px solid var(--border);
-        border-radius: 12px;
-        overflow: hidden;
-        transition:
-          transform 0.3s ease,
-          box-shadow 0.3s ease;
-        cursor: pointer;
-      }
-
-      .game-card:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
-      }
-
-      .game-thumbnail {
-        width: 100%;
-        height: 180px;
-        background: var(--bg-secondary);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
-        position: relative;
-      }
-
-      .game-thumbnail img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-      }
-
-      .game-thumbnail-placeholder {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 4rem;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      }
-
-      .game-card-content {
-        padding: 16px;
-      }
-
-      .game-card-title {
-        font-size: 1rem;
-        font-weight: 600;
-        color: var(--text);
-        margin-bottom: 4px;
-      }
-
-      .game-card-stats {
-        font-size: 0.875rem;
-        color: var(--text-light);
-      }
-
-      @keyframes scroll {
-        0% {
-          transform: translateX(0);
-        }
-        100% {
-          transform: translateX(calc(-300px * 5 - 24px * 5));
-        }
-      }
-
-      h2 {
-        font-size: 2rem;
-        font-weight: 700;
-        margin-bottom: 48px;
-      }
-
-      .tech-section {
-        background: var(--bg-secondary);
-      }
-
-      .tech-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 48px;
-      }
-
-      .tech-category h3 {
-        font-size: 0.875rem;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-        color: var(--text-light);
-        margin-bottom: 16px;
-      }
-
-      .tech-tags {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-      }
-
-      .tech-tag {
-        padding: 6px 14px;
-        background: var(--bg);
-        border: 1px solid var(--border);
-        border-radius: 6px;
-        font-size: 0.875rem;
-        color: var(--text);
-      }
-
-      .experience-item {
-        margin-bottom: 56px;
-        padding-bottom: 56px;
-        border-bottom: 1px solid var(--border);
-      }
-
-      .experience-item:last-child {
-        border-bottom: none;
-        margin-bottom: 0;
-        padding-bottom: 0;
-      }
-
-      .experience-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: start;
-        margin-bottom: 12px;
-        flex-wrap: wrap;
-        gap: 8px;
-      }
-
-      .experience-title {
-        font-size: 1.25rem;
-        font-weight: 600;
-        color: var(--text);
-      }
-
-      .experience-company {
-        color: var(--primary);
-        font-size: 0.95rem;
-      }
-
-      .experience-date {
-        color: var(--text-light);
-        font-size: 0.875rem;
-      }
-
-      .experience-role {
-        color: var(--text-light);
-        font-size: 0.95rem;
-        margin-bottom: 12px;
-      }
-
-      .experience-description {
-        color: var(--text-light);
-        line-height: 1.7;
-        margin-bottom: 12px;
-      }
-
-      .experience-stats {
-        color: var(--primary);
-        font-size: 0.95rem;
-        font-weight: 500;
-      }
-
-      .badge {
-        display: inline-block;
-        padding: 4px 12px;
-        background: #dbeafe;
-        color: var(--primary);
-        border-radius: 4px;
-        font-size: 0.8rem;
-        font-weight: 500;
-        margin-bottom: 8px;
-      }
-
-      .badge.deleted {
-        background: #f3f4f6;
-        color: var(--text-light);
-      }
-
-      .project-links {
-        display: flex;
-        gap: 12px;
-        margin-top: 12px;
-      }
-
-      .project-link {
+      .social-link {
         display: inline-flex;
         align-items: center;
+        gap: 7px;
         padding: 8px 16px;
-        background: var(--primary);
-        color: white;
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        color: var(--text);
         text-decoration: none;
-        border-radius: 6px;
         font-size: 0.875rem;
+        transition:
+          border-color 0.2s,
+          color 0.2s,
+          background 0.2s;
+      }
+      .social-link:hover {
+        border-color: var(--primary);
+        color: var(--primary);
+        background: var(--bg2);
+      }
+      .social-link svg {
+        flex-shrink: 0;
+      }
+      .hero-bio {
+        font-size: 1rem;
+        color: var(--muted);
+        max-width: 620px;
+        line-height: 1.8;
+      }
+      .stats {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 32px;
+        margin-top: 40px;
+      }
+      .stat-num {
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--primary);
+      }
+      .stat-lbl {
+        font-size: 0.85rem;
+        color: var(--muted);
+        margin-top: 2px;
+      }
+      section {
+        padding: 64px 0;
+      }
+      section + section {
+        border-top: 1px solid var(--border);
+      }
+      .section-title {
+        font-size: 1.4rem;
+        font-weight: 700;
+        margin-bottom: 36px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .section-title::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: var(--border);
+      }
+
+      /* ── TECH STACK ── */
+      .stack-group {
+        margin-bottom: 28px;
+      }
+      .stack-group:last-child {
+        margin-bottom: 0;
+      }
+      .stack-group-label {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--muted);
+        margin-bottom: 14px;
+        font-weight: 600;
+      }
+      .tech-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .tech-icon-btn {
+        position: relative;
+        width: 52px;
+        height: 52px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        background: var(--bg2);
+        cursor: default;
+        transition:
+          border-color 0.2s,
+          background 0.2s,
+          transform 0.15s;
+        font-size: 1.45rem;
+      }
+      .tech-icon-btn:hover {
+        border-color: var(--primary);
+        background: #1e3a5f;
+        transform: translateY(-2px);
+      }
+      .tech-icon-btn img {
+        width: 28px;
+        height: 28px;
+        object-fit: contain;
+      }
+      /* tooltip */
+      .tech-icon-btn::after {
+        content: attr(data-name);
+        position: absolute;
+        bottom: calc(100% + 7px);
+        left: 50%;
+        transform: translateX(-50%) scale(0.9);
+        background: #0f172a;
+        color: var(--text);
+        border: 1px solid var(--border);
+        font-size: 0.75rem;
+        font-weight: 500;
+        white-space: nowrap;
+        padding: 4px 9px;
+        border-radius: 5px;
+        pointer-events: none;
+        opacity: 0;
+        transition:
+          opacity 0.15s,
+          transform 0.15s;
+      }
+      .tech-icon-btn:hover::after {
+        opacity: 1;
+        transform: translateX(-50%) scale(1);
+      }
+
+      /* ── EXPERIENCE ── */
+      .exp-item {
+        margin-bottom: 44px;
+      }
+      .exp-item:last-child {
+        margin-bottom: 0;
+      }
+      .exp-header {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-bottom: 4px;
+      }
+      .exp-title {
+        font-size: 1.05rem;
+        font-weight: 600;
+      }
+      .exp-company {
+        color: var(--primary);
+        font-size: 0.875rem;
+      }
+      .exp-date {
+        color: var(--muted);
+        font-size: 0.8rem;
+      }
+      .exp-role {
+        color: var(--muted);
+        font-size: 0.875rem;
+        margin-bottom: 8px;
+      }
+      .exp-desc {
+        color: var(--muted);
+        font-size: 0.95rem;
+        line-height: 1.75;
+        margin-bottom: 8px;
+      }
+      .exp-stat {
+        color: var(--primary);
+        font-size: 0.875rem;
+        font-weight: 500;
+      }
+      .exp-links {
+        display: flex;
+        gap: 10px;
+        margin-top: 12px;
+        flex-wrap: wrap;
+      }
+      .exp-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 6px 14px;
+        border-radius: 6px;
+        font-size: 0.8rem;
+        text-decoration: none;
         transition: opacity 0.2s;
       }
-
-      .project-link:hover {
-        opacity: 0.9;
+      .exp-link.primary {
+        background: var(--primary);
+        color: #fff;
       }
-
-      .project-link.secondary {
-        background: var(--bg-secondary);
+      .exp-link.secondary {
+        background: var(--bg2);
         color: var(--text);
         border: 1px solid var(--border);
       }
+      .exp-link:hover {
+        opacity: 0.85;
+      }
 
-      .stats-grid {
+      /* ── PROJECTS ── */
+      .project-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 32px;
-        margin-top: 32px;
+        gap: 24px;
       }
-
-      .stat-item {
-        text-align: center;
+      .project-card {
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 24px;
+        background: var(--bg2);
+        transition:
+          border-color 0.2s,
+          box-shadow 0.2s;
       }
-
-      .stat-number {
-        font-size: 2.5rem;
-        font-weight: 700;
+      .project-card:hover {
+        border-color: var(--primary);
+        box-shadow: 0 4px 16px rgba(59, 130, 246, 0.08);
+      }
+      .project-name {
+        font-size: 1rem;
+        font-weight: 600;
+        margin-bottom: 4px;
+      }
+      .project-pkg {
+        font-size: 0.8rem;
         color: var(--primary);
-        margin-bottom: 8px;
+        margin-bottom: 10px;
+      }
+      .project-desc {
+        font-size: 0.9rem;
+        color: var(--muted);
+        line-height: 1.7;
+        margin-bottom: 14px;
+      }
+      .project-tags {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-bottom: 16px;
+      }
+      .project-tag {
+        font-size: 0.75rem;
+        padding: 3px 10px;
+        border-radius: 4px;
+        background: #1e3a5f;
+        color: #93c5fd;
       }
 
-      .stat-label {
-        color: var(--text-light);
-        font-size: 0.95rem;
+      /* ── GAME CAROUSEL ── */
+      .carousel-outer {
+        overflow: hidden;
+        position: relative;
+        margin-top: 8px;
+      }
+      .carousel-outer::before,
+      .carousel-outer::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 40px;
+        z-index: 2;
+        pointer-events: none;
+      }
+      .carousel-outer::before {
+        left: 0;
+        background: linear-gradient(to right, var(--bg), transparent);
+      }
+      .carousel-outer::after {
+        right: 0;
+        background: linear-gradient(to left, var(--bg), transparent);
+      }
+      .carousel-track {
+        display: flex;
+        gap: 20px;
+        width: max-content;
+        animation: marquee 28s linear infinite;
+      }
+      .carousel-outer:hover .carousel-track {
+        animation-play-state: paused;
+      }
+      @keyframes marquee {
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(-50%);
+        }
+      }
+      .game-card {
+        flex: 0 0 220px;
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        overflow: hidden;
+        cursor: pointer;
+        background: var(--bg2);
+        transition:
+          transform 0.25s,
+          box-shadow 0.25s;
+      }
+      .game-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      }
+      .game-thumb {
+        width: 100%;
+        height: 130px;
+        object-fit: cover;
+        display: block;
+        background: var(--bg2);
+      }
+      .game-info {
+        padding: 10px 12px;
+      }
+      .game-name {
+        font-size: 0.85rem;
+        font-weight: 600;
+        margin-bottom: 2px;
+      }
+      .game-visits {
+        font-size: 0.775rem;
+        color: var(--muted);
       }
 
       footer {
         border-top: 1px solid var(--border);
-        padding: 48px 0;
+        padding: 40px 0;
       }
-
-      .footer-content {
+      footer .wrap {
         display: flex;
         justify-content: space-between;
         align-items: center;
         flex-wrap: wrap;
-        gap: 24px;
+        gap: 16px;
       }
-
       .footer-text {
-        color: var(--text-light);
-        font-size: 0.875rem;
+        font-size: 0.8rem;
+        color: var(--muted);
       }
-
-      .social-links {
+      .footer-links {
         display: flex;
-        gap: 24px;
+        gap: 20px;
       }
-
-      .social-links a {
-        color: var(--text-light);
+      .footer-links a {
+        font-size: 0.8rem;
+        color: var(--muted);
         text-decoration: none;
-        font-size: 0.875rem;
         transition: color 0.2s;
       }
-
-      .social-links a:hover {
+      .footer-links a:hover {
         color: var(--primary);
       }
-
-      @media (max-width: 768px) {
-        h1 {
-          font-size: 2.25rem;
+      @media (max-width: 600px) {
+        #hero h1 {
+          font-size: 2rem;
         }
-
-        h2 {
-          font-size: 1.75rem;
-        }
-
-        section {
-          padding: 60px 0;
-        }
-
         .nav-links {
-          gap: 20px;
-          font-size: 0.875rem;
-        }
-
-        .experience-header {
-          flex-direction: column;
-        }
-
-        .tech-grid {
-          grid-template-columns: 1fr;
-          gap: 32px;
-        }
-
-        nav .container {
-          flex-wrap: wrap;
-        }
-
-        .theme-toggle {
-          order: -1;
-          margin-left: auto;
+          gap: 16px;
         }
       }
     </style>
   </head>
   <body>
-    <script>
-      const getPreferredTheme = () => {
-        const savedTheme = localStorage.getItem("theme");
-        if (savedTheme) {
-          return savedTheme;
-        }
-        return window.matchMedia("(prefers-color-scheme: dark)").matches
-          ? "dark"
-          : "light";
-      };
-
-      const setTheme = (theme) => {
-        document.documentElement.setAttribute("data-theme", theme);
-        localStorage.setItem("theme", theme);
-        updateThemeToggle(theme);
-      };
-
-      const updateThemeToggle = (theme) => {
-        const toggle = document.getElementById("theme-toggle");
-        if (toggle) {
-          toggle.textContent = theme === "dark" ? "☀️" : "🌙";
-        }
-      };
-
-      const toggleTheme = () => {
-        const currentTheme =
-          document.documentElement.getAttribute("data-theme") || "light";
-        const newTheme = currentTheme === "dark" ? "light" : "dark";
-        setTheme(newTheme);
-      };
-
-      setTheme(getPreferredTheme());
-
-      window
-        .matchMedia("(prefers-color-scheme: dark)")
-        .addEventListener("change", (e) => {
-          if (!localStorage.getItem("theme")) {
-            setTheme(e.matches ? "dark" : "light");
-          }
-        });
-    </script>
-
     <nav>
-      <div class="container">
+      <div class="wrap">
         <a href="#" class="logo">Dane Malloy</a>
-        <div style="display: flex; align-items: center; gap: 24px">
-          <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li>
-              <button
-                id="theme-toggle"
-                class="theme-toggle"
-                onclick="toggleTheme()"
-              >
-                🌙
-              </button>
-            </li>
-          </ul>
-        </div>
+        <ul class="nav-links">
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#games">Games</a></li>
+        </ul>
       </div>
     </nav>
 
-    <section class="hero">
-      <div class="container">
+    <section id="hero">
+      <div class="wrap">
         <h1>Dane Malloy</h1>
-        <span class="badge">✓ Verified Developer</span>
-        <p class="hero-subtitle">Scripter | Systems Engineer</p>
-        <p class="hero-description">
-          I'm a certified computer scientist with over 7 years of experience
-          developing high-performance games on Roblox. I've contributed to
-          experiences totaling over 500 million visits, including standout
-          titles like Streetz War 2 (90M+) and Epic's MM2 (150M+).
-        </p>
-
-        <div class="game-showcase">
-          <div class="game-showcase-track">
-            <div
-              class="game-card"
-              onclick="
-                window.open(
-                  'https://www.roblox.com/games/18458237069/Fight-in-a-Kindergarten',
-                  '_blank',
-                )
-              "
-            >
-              <div class="game-thumbnail">
-                <img
-                  src="images/fight-kindergarten.jpg"
-                  alt="Fight in a Kindergarten"
-                />
-              </div>
-              <div class="game-card-content">
-                <div class="game-card-title">Fight in a Kindergarten</div>
-                <div class="game-card-stats">11.3M+ Visits</div>
-              </div>
-            </div>
-
-            <div
-              class="game-card"
-              onclick="
-                window.open(
-                  'https://www.roblox.com/games/8109476632/SpiderMan-Simulator',
-                  '_blank',
-                )
-              "
-            >
-              <div class="game-thumbnail">
-                <img src="images/spiderman.jpg" alt="Spider-Man Simulator" />
-              </div>
-              <div class="game-card-content">
-                <div class="game-card-title">Spider-Man Simulator</div>
-                <div class="game-card-stats">102M+ Visits</div>
-              </div>
-            </div>
-
-            <div
-              class="game-card"
-              onclick="
-                window.open(
-                  'https://www.roblox.com/games/16884631785/FiveDuels-PVP',
-                  '_blank',
-                )
-              "
-            >
-              <div class="game-thumbnail">
-                <img src="images/fiveduels.jpg" alt="FiveDuels PVP" />
-              </div>
-              <div class="game-card-content">
-                <div class="game-card-title">FiveDuels PVP</div>
-                <div class="game-card-stats">4.5M+ Visits</div>
-              </div>
-            </div>
-
-            <div
-              class="game-card"
-              onclick="
-                window.open(
-                  'https://www.roblox.com/games/79722965489935/Line-to-Heavenly-Gates',
-                  '_blank',
-                )
-              "
-            >
-              <div class="game-thumbnail">
-                <img src="images/heaven-line.jpg" alt="Heaven Line Simulator" />
-              </div>
-              <div class="game-card-content">
-                <div class="game-card-title">Heaven Line Simulator</div>
-                <div class="game-card-stats">25.8M+ Visits</div>
-              </div>
-            </div>
-
-            <div class="game-card">
-              <div class="game-thumbnail">
-                <img
-                  src="images/football-player.jpg"
-                  alt="Steal A Football Player"
-                />
-              </div>
-              <div class="game-card-content">
-                <div class="game-card-title">Steal A Football Player</div>
-                <div class="game-card-stats">16.2M+ Visits</div>
-              </div>
-            </div>
-
-            <div
-              class="game-card"
-              onclick="
-                window.open(
-                  'https://www.roblox.com/games/18458237069/Fight-in-a-Kindergarten',
-                  '_blank',
-                )
-              "
-            >
-              <div class="game-thumbnail">
-                <img
-                  src="images/fight-kindergarten.jpg"
-                  alt="Fight in a Kindergarten"
-                />
-              </div>
-              <div class="game-card-content">
-                <div class="game-card-title">Fight in a Kindergarten</div>
-                <div class="game-card-stats">11.3M+ Visits</div>
-              </div>
-            </div>
-
-            <div
-              class="game-card"
-              onclick="
-                window.open(
-                  'https://www.roblox.com/games/8109476632/SpiderMan-Simulator',
-                  '_blank',
-                )
-              "
-            >
-              <div class="game-thumbnail">
-                <img src="images/spiderman.jpg" alt="Spider-Man Simulator" />
-              </div>
-              <div class="game-card-content">
-                <div class="game-card-title">Spider-Man Simulator</div>
-                <div class="game-card-stats">102M+ Visits</div>
-              </div>
-            </div>
-
-            <div
-              class="game-card"
-              onclick="
-                window.open(
-                  'https://www.roblox.com/games/16884631785/FiveDuels-PVP',
-                  '_blank',
-                )
-              "
-            >
-              <div class="game-thumbnail">
-                <img src="images/fiveduels.jpg" alt="FiveDuels PVP" />
-              </div>
-              <div class="game-card-content">
-                <div class="game-card-title">FiveDuels PVP</div>
-                <div class="game-card-stats">4.5M+ Visits</div>
-              </div>
-            </div>
-
-            <div
-              class="game-card"
-              onclick="
-                window.open(
-                  'https://www.roblox.com/games/79722965489935/Line-to-Heavenly-Gates',
-                  '_blank',
-                )
-              "
-            >
-              <div class="game-thumbnail">
-                <img src="images/heaven-line.jpg" alt="Heaven Line Simulator" />
-              </div>
-              <div class="game-card-content">
-                <div class="game-card-title">Heaven Line Simulator</div>
-                <div class="game-card-stats">25.8M+ Visits</div>
-              </div>
-            </div>
-
-            <div class="game-card">
-              <div class="game-thumbnail">
-                <img
-                  src="images/football-player.jpg"
-                  alt="Steal A Football Player"
-                />
-              </div>
-              <div class="game-card-content">
-                <div class="game-card-title">Steal A Football Player</div>
-                <div class="game-card-stats">16.2M+ Visits</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="tech-section">
-      <div class="container">
-        <h2>What I work with</h2>
-        <div class="tech-grid">
-          <div class="tech-category">
-            <h3>Roblox</h3>
-            <div class="tech-tags">
-              <span class="tech-tag">roblox-ts</span>
-              <span class="tech-tag">Luau</span>
-              <span class="tech-tag">Rojo</span>
-            </div>
-          </div>
-          <div class="tech-category">
-            <h3>Game Engines</h3>
-            <div class="tech-tags">
-              <span class="tech-tag">Unity</span>
-              <span class="tech-tag">Unreal Engine 5</span>
-            </div>
-          </div>
-          <div class="tech-category">
-            <h3>Languages</h3>
-            <div class="tech-tags">
-              <span class="tech-tag">TypeScript</span>
-              <span class="tech-tag">C++</span>
-              <span class="tech-tag">Luau</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="about">
-      <div class="container">
-        <h2>About me</h2>
-        <p
-          style="
-            font-size: 1.05rem;
-            line-height: 1.8;
-            color: var(--text-light);
-            margin-bottom: 24px;
-          "
-        >
-          I specialize in <strong>roblox-ts</strong>, <strong>Rojo</strong>, and
-          <strong>Luau</strong>, building scalable codebases, clean networking
-          layers, and performant game systems. My broader development background
-          includes working in Unity with C++, and contributing to Epic Games'
-          Unreal Engine 5, giving me deep insight into real-time systems and
-          engine architecture.
-        </p>
-        <p
-          style="font-size: 1.05rem; line-height: 1.8; color: var(--text-light)"
-        >
-          If you're seeking a technically solid, reliable developer who delivers
-          quality and scalability — let's connect.
-        </p>
-
-        <div class="stats-grid">
-          <div class="stat-item">
-            <div class="stat-number">500M+</div>
-            <div class="stat-label">Total Game Visits</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-number">7+</div>
-            <div class="stat-label">Years Experience</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-number">10+</div>
-            <div class="stat-label">Projects Shipped</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="projects" style="background: var(--bg-secondary)">
-      <div class="container">
-        <h2>Open Source Projects</h2>
-
-        <div class="experience-item">
-          <span class="badge" style="background: #f0f9ff; color: #0284c7"
-            >TypeScript</span
+        <p class="hero-sub">Software Engineer based in California</p>
+        <div class="social-row">
+          <a
+            href="https://github.com/danemalloy"
+            class="social-link"
+            target="_blank"
           >
-          <div class="experience-header">
-            <div>
-              <div class="experience-title">@rbxts/path</div>
-              <div class="experience-company">Roblox TypeScript Package</div>
-            </div>
-            <div class="experience-date">⭐ 1 star</div>
-          </div>
-          <div class="experience-role">MIT License</div>
-          <p class="experience-description">
-            A TypeScript wrapper for Roblox's PathfindingService with
-            async/await support, robust error handling, and a built-in Finite
-            State Machine (FSM) for advanced path state management. Includes
-            utilities for pathfinding, waypoint manipulation, and a SmartPath
-            class with automatic retry and recovery.
-          </p>
-          <div class="experience-stats">
-            Features: Async/await • FSM State Management • Auto-retry •
-            TypeScript Types
-          </div>
-          <div class="project-links">
-            <a
-              href="https://github.com/danemalloy/path"
-              class="project-link"
-              target="_blank"
-              >View on GitHub →</a
-            >
-            <a
-              href="https://www.npmjs.com/package/@rbxts/path"
-              class="project-link secondary"
-              target="_blank"
-              >NPM Package →</a
-            >
-          </div>
-        </div>
-
-        <div class="experience-item">
-          <span class="badge" style="background: #f0f9ff; color: #0284c7"
-            >TypeScript</span
-          >
-          <div class="experience-header">
-            <div>
-              <div class="experience-title">ecs-lite</div>
-              <div class="experience-company">Entity Component System</div>
-            </div>
-            <div class="experience-date">⭐ 1 star</div>
-          </div>
-          <div class="experience-role">MIT License</div>
-          <p class="experience-description">
-            A lightweight Entity Component System (ECS) library written in
-            TypeScript for Roblox. Provides a performant and flexible
-            architecture for game development with clean separation of data and
-            logic.
-          </p>
-          <div class="experience-stats">
-            Features: Lightweight • Type-safe • Performance-focused • Clean
-            Architecture
-          </div>
-          <div class="project-links">
-            <a
-              href="https://github.com/danemalloy/ecs-lite"
-              class="project-link"
-              target="_blank"
-              >View on GitHub →</a
-            >
-            <a
-              href="https://www.npmjs.com/package/@rbxts/ecs-lite"
-              class="project-link secondary"
-              target="_blank"
-              >NPM Package →</a
-            >
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="experience">
-      <div class="container">
-        <h2>Experience</h2>
-
-        <div class="experience-item">
-          <div class="experience-header">
-            <div>
-              <div class="experience-title">Anime Warriors Combat</div>
-              <div class="experience-company">MythX Studio</div>
-            </div>
-            <div class="experience-date">Dec 2023 - Apr 2024</div>
-          </div>
-          <div class="experience-role">Programmer</div>
-          <p class="experience-description">
-            Programmed the Raid system and a few supporting systems such as the combat and mount systems for this anime-themed bandit beater.
-          </p>
-          <div class="experience-stats">660k+ Visits</div>
-          <div class="project-links">
-            <a
-              href="https://www.roblox.com/games/15174201250/Anime-Warriors-Combat"
-              class="project-link"
-              target="_blank"
-              >Play Game →</a
-            >
-          </div>
-        </div>
-
-        <div class="experience-item">
-          <div class="experience-header">
-            <div>
-              <div class="experience-title">Streetz War 2</div>
-              <div class="experience-company">#Streetz War 2</div>
-            </div>
-            <div class="experience-date">May 2024 - Nov 2024</div>
-          </div>
-          <div class="experience-role">Lead Programmer</div>
-          <p class="experience-description">
-            Solo programmed all systems for this massive multiplayer experience.
-            Built high-performance networking architecture to handle millions of
-            concurrent players.
-          </p>
-          <div class="experience-stats">90M+ Visits</div>
-          <div class="project-links">
-            <a
-              href="https://www.roblox.com/games/11177482306/Streetz-War-2"
-              class="project-link"
-              target="_blank"
-              >Play Game →</a
-            >
-          </div>
-        </div>
-
-        <div class="experience-item">
-          <div class="experience-header">
-            <div>
-              <div class="experience-title">Fight in a Kindergarten</div>
-              <div class="experience-company">Coldworld Games</div>
-            </div>
-            <div class="experience-date">Dec 2024 - Jun 2025</div>
-          </div>
-          <div class="experience-role">Lead Programmer</div>
-          <p class="experience-description">
-            Solo programmed all systems, fixed bugs, and created interactive
-            gameplay elements. Built scalable architecture for multiplayer
-            combat mechanics.
-          </p>
-          <div class="experience-stats">11.3M+ Visits</div>
-          <div class="project-links">
-            <a
-              href="https://www.roblox.com/games/18458237069/Fight-in-a-Kindergarten"
-              class="project-link"
-              target="_blank"
-              >Play Game →</a
-            >
-          </div>
-        </div>
-
-        <div class="experience-item">
-          <div class="experience-header">
-            <div>
-              <div class="experience-title">PlayCore Projects</div>
-              <div class="experience-company">PlayCore.gg</div>
-            </div>
-            <div class="experience-date">Sep 2024 - Mar 2025</div>
-          </div>
-          <div class="experience-role">Project Manager + Programmer</div>
-          <p class="experience-description">
-            Led development across multiple projects including Heaven Line
-            Simulator, FiveDuels 2, and Volleyball X. Managed team coordination
-            and technical architecture.
-          </p>
-          <div class="experience-stats">122.4M+ Combined Visits</div>
-          <div class="project-links">
-            <a
-              href="https://www.roblox.com/games/16884631785/FiveDuels-PVP"
-              class="project-link secondary"
-              target="_blank"
-              >FiveDuels →</a
-            >
-            <a
-              href="https://www.roblox.com/games/79722965489935/Line-to-Heavenly-Gates"
-              class="project-link secondary"
-              target="_blank"
-              >Heaven Line →</a
-            >
-            <a
-              href="https://www.roblox.com/games/18196050689/Volleyball-X"
-              class="project-link secondary"
-              target="_blank"
-              >Volleyball X →</a
-            >
-          </div>
-        </div>
-
-        <div class="experience-item">
-          <div class="experience-header">
-            <div>
-              <div class="experience-title">Steal A Football Player</div>
-              <div class="experience-company">Mazz Productions</div>
-            </div>
-            <div class="experience-date">Aug 2025 - Dec 2025</div>
-          </div>
-          <div class="experience-role">Programmer</div>
-          <p class="experience-description">
-            Programmed interactive events, fixed bugs, and implemented engaging
-            gameplay mechanics. Focused on event-driven architecture and player
-            engagement systems.
-          </p>
-          <span class="badge deleted">Content Deleted</span>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact">
-      <div class="container">
-        <h2>Let's connect</h2>
-        <p
-          style="
-            font-size: 1.05rem;
-            line-height: 1.8;
-            color: var(--text-light);
-            margin-bottom: 32px;
-          "
-        >
-          Interested in working together? Reach out through any of these
-          platforms.
-        </p>
-        <div class="project-links">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"
+              />
+            </svg>
+            GitHub
+          </a>
           <a
             href="https://www.linkedin.com/in/dane-malloy/"
-            class="project-link"
+            class="social-link"
             target="_blank"
-            >LinkedIn →</a
           >
-          <a href="mailto:damalloy2@gmail.com" class="project-link"
-            >Email Me →</a
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+              />
+            </svg>
+            LinkedIn
+          </a>
+          <a href="mailto:damalloy2@gmail.com" class="social-link">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+              />
+              <polyline points="22,6 12,12 2,6" />
+            </svg>
+            Email
+          </a>
+        </div>
+        <p class="hero-bio">
+          18 year old certified computer scientist with 8+ years building
+          high-performance games. I've shipped experiences with over
+          <strong>27,000 active users</strong>, specializing in scalable
+          networking, game systems architecture, and clean TypeScript codebases.
+        </p>
+        <div class="stats">
+          <div>
+            <div class="stat-num">500M+</div>
+            <div class="stat-lbl">Total game visits</div>
+          </div>
+          <div>
+            <div class="stat-num">8+</div>
+            <div class="stat-lbl">Years experience</div>
+          </div>
+          <div>
+            <div class="stat-num">10+</div>
+            <div class="stat-lbl">Projects shipped</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TECH STACK -->
+    <section id="stack">
+      <div class="wrap">
+        <h2 class="section-title">Tech Stack</h2>
+
+        <div class="stack-group">
+          <div class="stack-group-label">Languages</div>
+          <div class="tech-grid" id="lang-grid"></div>
+        </div>
+
+        <div class="stack-group">
+          <div class="stack-group-label">Tools &amp; Engines</div>
+          <div class="tech-grid" id="tools-grid"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <div class="wrap">
+        <h2 class="section-title">Experience</h2>
+        <div class="exp-item">
+          <div class="exp-header">
+            <div>
+              <div class="exp-title">Roblox Corporation</div>
+              <div class="exp-company">Contractor</div>
+            </div>
+            <div class="exp-date">July 2017 – Present</div>
+          </div>
+          <div class="exp-role">Gameplay Engineer</div>
+          <p class="exp-desc">
+            Contracted across several Roblox studios to design and ship full
+            game codebases. Responsibilities spanned solo full-stack development
+            of game systems, networking architecture, real-time multiplayer
+            mechanics, raid &amp; combat systems, and project management across
+            cross-functional teams. Notable engagements include:
+          </p>
+          <ul
+            style="
+              color: var(--muted);
+              font-size: 0.9rem;
+              line-height: 1.9;
+              padding-left: 20px;
+              margin-bottom: 10px;
+            "
           >
-          <a
-            href="https://www.roblox.com/users/567576529/profile"
-            class="project-link secondary"
-            target="_blank"
-            >Roblox Profile →</a
-          >
+            <li>
+              <strong style="color: var(--text)">Streetz War 2</strong> — Solo
+              programmed all systems; 90M+ visits (May–Nov 2024)
+            </li>
+            <li>
+              <strong style="color: var(--text)">PlayCore.gg</strong> — PM +
+              programmer across Heaven Line Simulator, FiveDuels 2, Volleyball
+              X; 122M+ combined visits (Sep 2024–Mar 2025)
+            </li>
+            <li>
+              <strong style="color: var(--text)"
+                >Fight in a Kindergarten</strong
+              >
+              — Lead programmer; 11.3M+ visits (Dec 2024–Jun 2025)
+            </li>
+            <li>
+              <strong style="color: var(--text)">Anime Warriors Combat</strong>
+              — Raid, combat &amp; mount systems; 660k+ visits (Dec 2023–Apr
+              2024)
+            </li>
+            <li>
+              <strong style="color: var(--text)"
+                >Steal A Football Player</strong
+              >
+              — Events &amp; gameplay mechanics (Aug–Dec 2025)
+            </li>
+          </ul>
+          <div class="exp-stat">
+            500M+ combined visits across all engagements
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OPEN SOURCE -->
+    <section id="projects">
+      <div class="wrap">
+        <h2 class="section-title">Open Source</h2>
+        <div class="project-grid">
+          <div class="project-card">
+            <div class="project-name">@rbxts/path</div>
+            <div class="project-pkg">npm · roblox-ts · MIT</div>
+            <p class="project-desc">
+              TypeScript wrapper for Roblox's PathfindingService with
+              async/await support, a built-in FSM for path state management, and
+              a SmartPath class with automatic retry and recovery.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">TypeScript</span
+              ><span class="project-tag">Async/Await</span
+              ><span class="project-tag">FSM</span
+              ><span class="project-tag">Pathfinding</span>
+            </div>
+            <div class="exp-links">
+              <a
+                href="https://github.com/danemalloy/path"
+                class="exp-link primary"
+                target="_blank"
+                >GitHub →</a
+              >
+              <a
+                href="https://www.npmjs.com/package/@rbxts/path"
+                class="exp-link secondary"
+                target="_blank"
+                >npm →</a
+              >
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-name">ecs-lite</div>
+            <div class="project-pkg">npm · roblox-ts · MIT</div>
+            <p class="project-desc">
+              Lightweight Entity Component System library for Roblox written in
+              TypeScript. Provides a performant, type-safe architecture with
+              clean separation of data and logic.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">TypeScript</span
+              ><span class="project-tag">ECS</span
+              ><span class="project-tag">Performance</span
+              ><span class="project-tag">Architecture</span>
+            </div>
+            <div class="exp-links">
+              <a
+                href="https://github.com/danemalloy/ecs-lite"
+                class="exp-link primary"
+                target="_blank"
+                >GitHub →</a
+              >
+              <a
+                href="https://www.npmjs.com/package/@rbxts/ecs-lite"
+                class="exp-link secondary"
+                target="_blank"
+                >npm →</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GAME SHOWCASE -->
+    <section id="games">
+      <div class="wrap">
+        <h2 class="section-title">Games Shipped</h2>
+        <div class="carousel-outer">
+          <div class="carousel-track" id="carousel-track"></div>
         </div>
       </div>
     </section>
 
     <footer>
-      <div class="container">
-        <div class="footer-content">
-          <p class="footer-text">© 2025 Dane Malloy | Roblox: dane1up</p>
-          <div class="social-links">
-            <a href="https://github.com/danemalloy" target="_blank">GitHub</a>
-            <a href="https://www.instagram.com/dane_malloy" target="_blank"
-              >Instagram</a
-            >
-            <a
-              href="https://www.roblox.com/users/567576529/profile"
-              target="_blank"
-              >Roblox</a
-            >
-          </div>
+      <div class="wrap">
+        <p class="footer-text">© 2025 Dane Malloy</p>
+        <div class="footer-links">
+          <a href="https://github.com/danemalloy" target="_blank">GitHub</a>
+          <a href="https://www.linkedin.com/in/dane-malloy/" target="_blank"
+            >LinkedIn</a
+          >
         </div>
       </div>
     </footer>
-      </div>
-    </section>
+
+    <script>
+      // SVG icons as inline strings (CDN-safe, no external dependencies besides FA)
+      // Using devicons CDN for SVG logos
+      const CDN = "https://cdnjs.cloudflare.com/ajax/libs/devicons/2.15.0/svg/";
+
+      // Each entry: { name, svg: inline SVG string OR img: url }
+      const languages = [
+        {
+          name: "TypeScript",
+          img: "https://cdnjs.cloudflare.com/ajax/libs/simple-icons/11.3.0/typescript.svg",
+          color: "#3178c6",
+        },
+        {
+          name: "JavaScript",
+          img: "https://cdnjs.cloudflare.com/ajax/libs/simple-icons/11.3.0/javascript.svg",
+          color: "#f7df1e",
+        },
+        {
+          name: "Lua / Luau",
+          img: "https://cdnjs.cloudflare.com/ajax/libs/simple-icons/11.3.0/lua.svg",
+          color: "#2c2d72",
+        },
+        {
+          name: "C++",
+          img: "https://cdnjs.cloudflare.com/ajax/libs/simple-icons/11.3.0/cplusplus.svg",
+          color: "#00599c",
+        },
+        {
+          name: "HTML",
+          img: "https://cdnjs.cloudflare.com/ajax/libs/simple-icons/11.3.0/html5.svg",
+          color: "#e34f26",
+        },
+        {
+          name: "CSS",
+          img: "https://cdnjs.cloudflare.com/ajax/libs/simple-icons/11.3.0/css3.svg",
+          color: "#1572b6",
+        },
+      ];
+
+      const tools = [
+        {
+          name: "Node.js",
+          img: "https://cdnjs.cloudflare.com/ajax/libs/simple-icons/11.3.0/nodedotjs.svg",
+          color: "#5fa04e",
+        },
+        {
+          name: "React",
+          img: "https://cdnjs.cloudflare.com/ajax/libs/simple-icons/11.3.0/react.svg",
+          color: "#61dafb",
+        },
+        {
+          name: "Git",
+          img: "https://cdnjs.cloudflare.com/ajax/libs/simple-icons/11.3.0/git.svg",
+          color: "#f05032",
+        },
+        {
+          name: "Playwright",
+          img: "https://cdnjs.cloudflare.com/ajax/libs/simple-icons/11.3.0/playwright.svg",
+          color: "#2ead33",
+        },
+        {
+          name: "Unity",
+          img: "https://cdnjs.cloudflare.com/ajax/libs/simple-icons/11.3.0/unity.svg",
+          color: "#ffffff",
+        },
+        {
+          name: "Unreal Engine 5",
+          img: "https://cdnjs.cloudflare.com/ajax/libs/simple-icons/11.3.0/unrealengine.svg",
+          color: "#ffffff",
+        },
+        {
+          name: "Roblox Studio",
+          img: "https://cdnjs.cloudflare.com/ajax/libs/simple-icons/11.3.0/robloxstudio.svg",
+          color: "#ffffff",
+        },
+        {
+          name: "roblox-ts",
+          img: "https://cdnjs.cloudflare.com/ajax/libs/simple-icons/11.3.0/typescript.svg",
+          color: "#3178c6",
+        },
+      ];
+
+      function buildGrid(items, gridId) {
+        const grid = document.getElementById(gridId);
+        items.forEach((item) => {
+          const btn = document.createElement("div");
+          btn.className = "tech-icon-btn";
+          btn.setAttribute("data-name", item.name);
+
+          const img = document.createElement("img");
+          img.src = item.img;
+          img.alt = item.name;
+          img.style.cssText = `width:28px;height:28px;object-fit:contain;filter:brightness(0) invert(1);`;
+
+          // For colored icons, swap filter on hover via JS
+          const baseFilter = "brightness(0) invert(1)";
+          btn.addEventListener("mouseenter", () => {
+            img.style.filter = baseFilter;
+          });
+          btn.addEventListener("mouseleave", () => {
+            img.style.filter = baseFilter;
+          });
+
+          btn.appendChild(img);
+          grid.appendChild(btn);
+        });
+      }
+
+      buildGrid(languages, "lang-grid");
+      buildGrid(tools, "tools-grid");
+
+      // Games carousel
+      const games = [
+        {
+          title: "Spider-Man Simulator",
+          visits: "102M+ Visits",
+          img: "images/spiderman.jpg",
+          url: "https://www.roblox.com/games/8109476632/SpiderMan-Simulator",
+        },
+        {
+          title: "Streetz War 2",
+          visits: "90M+ Visits",
+          img: "images/streetz-war.jpg",
+          url: "https://www.roblox.com/games/11177482306/Streetz-War-2",
+        },
+        {
+          title: "Heaven Line Simulator",
+          visits: "25.8M+ Visits",
+          img: "images/heaven-line.jpg",
+          url: "https://www.roblox.com/games/79722965489935/Line-to-Heavenly-Gates",
+        },
+        {
+          title: "Steal A Football Player",
+          visits: "16.2M+ Visits",
+          img: "images/football-player.jpg",
+          url: "",
+        },
+        {
+          title: "Fight in a Kindergarten",
+          visits: "11.3M+ Visits",
+          img: "images/fight-kindergarten.jpg",
+          url: "https://www.roblox.com/games/18458237069/Fight-in-a-Kindergarten",
+        },
+        {
+          title: "FiveDuels PVP",
+          visits: "4.5M+ Visits",
+          img: "images/fiveduels.jpg",
+          url: "https://www.roblox.com/games/16884631785/FiveDuels-PVP",
+        },
+        {
+          title: "Anime Warriors Combat",
+          visits: "660k+ Visits",
+          img: "images/anime-warriors.jpg",
+          url: "https://www.roblox.com/games/15174201250/Anime-Warriors-Combat",
+        },
+      ];
+      const ct = document.getElementById("carousel-track");
+      [...games, ...games].forEach((g) => {
+        const card = document.createElement("div");
+        card.className = "game-card";
+        if (g.url) card.onclick = () => window.open(g.url, "_blank");
+        card.innerHTML = g.img
+          ? `<img class="game-thumb" src="${g.img}" alt="${g.title}" />`
+          : `<div class="game-thumb" style="display:flex;align-items:center;justify-content:center;font-size:2.5rem;background:linear-gradient(135deg,#667eea,#764ba2)">🎮</div>`;
+        card.innerHTML += `<div class="game-info"><div class="game-name">${g.title}</div><div class="game-visits">${g.visits}</div></div>`;
+        ct.appendChild(card);
+      });
+    </script>
   </body>
 </html>
